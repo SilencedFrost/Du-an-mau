@@ -27,7 +27,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="FPTLogo" max="32767" attributes="0"/>
+              <Component id="imgFPTLogo" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
           <Component id="pb" alignment="0" pref="530" max="32767" attributes="0"/>
@@ -37,7 +37,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="FPTLogo" min="-2" pref="168" max="-2" attributes="0"/>
+              <Component id="imgFPTLogo" min="-2" pref="168" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pb" min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
@@ -45,7 +45,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="FPTLogo">
+    <Component class="javax.swing.JLabel" name="imgFPTLogo">
     </Component>
     <Component class="javax.swing.JProgressBar" name="pb">
       <Properties>

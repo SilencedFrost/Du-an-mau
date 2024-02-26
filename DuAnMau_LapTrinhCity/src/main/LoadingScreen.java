@@ -29,7 +29,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        FPTLogo = new javax.swing.JLabel();
+        imgFPTLogo = new javax.swing.JLabel();
         pb = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,7 +44,7 @@ public class LoadingScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(FPTLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(imgFPTLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
             .addComponent(pb, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
@@ -52,7 +52,7 @@ public class LoadingScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(FPTLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(imgFPTLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pb, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -65,7 +65,7 @@ public class LoadingScreen extends javax.swing.JFrame {
         //Chỉnh về giữa màn hình
         Tools.SetFrameToCenter(this);
         
-        FPTLogo.setIcon(Tools.GetScaledIcon("src/main/images/FPTPolyLogo.png", FPTLogo));
+        Tools.SetIcon(imgFPTLogo, "src/main/images/ongvang.png");
     }
     /**
      * @param args the command line arguments
@@ -103,7 +103,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel FPTLogo;
+    private javax.swing.JLabel imgFPTLogo;
     private javax.swing.JProgressBar pb;
     // End of variables declaration//GEN-END:variables
 }

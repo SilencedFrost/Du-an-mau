@@ -21,12 +21,13 @@ import javax.swing.JLabel;
  */
 public class Tools 
 {
-    public static Icon GetScaledIcon(String path, JLabel scalefor)
+    public static void SetIcon(JLabel container, String imgpath)
     {
-        ImageIcon icon = new ImageIcon(path);
+        ImageIcon icon = new ImageIcon(imgpath);
         Image image = icon.getImage();
-        Image scaled = image.getScaledInstance(scalefor.getWidth(), scalefor.getHeight(), java.awt.Image.SCALE_SMOOTH);
-        return new ImageIcon(scaled);
+        Image scaled = image.getScaledInstance(container.getWidth(), container.getHeight(), java.awt.Image.SCALE_SMOOTH);
+        container.setIcon(new ImageIcon(scaled));
+        
     }
     
     public static void SetFrameToCenter (JFrame frame)
