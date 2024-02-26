@@ -99,5 +99,3 @@ begin
 	return 0
 end;
 go
-
-select dbo.UserLogin('Minh', 'hello');

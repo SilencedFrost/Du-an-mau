@@ -13,21 +13,34 @@ import java.util.Properties;
  * @author SIlencedFrost
  */
 public class ReadProps {
-    protected String dbname;
-    protected String username;
-    protected String pass;
     
-    public static String getInfo()
+    public static String getDBName()
+    {
+        return getProps().getProperty("dbname");
+    }
+    
+    public static String getUsername()
+    {
+        return getProps().getProperty("username");
+    }
+    
+    public static String getPassword()
+    {
+        return getProps().getProperty("pass");
+    }
+    
+    public static Properties getProps()
     {
         try
         {
             FileReader reader = new FileReader("src/main/connection.properties");
             Properties prop = new Properties();
             prop.load(reader);
-            return "jdbc:sqlserver://localhost:1433;databaseName=" + prop.getProperty("dbname") + ";username=" + prop.getProperty("username") + ";password=" + prop.getProperty("pass");
+            return prop;
         }
-        catch (IOException ex)
+        catch(IOException ex)
         {
+            
         }
         return null;
     }

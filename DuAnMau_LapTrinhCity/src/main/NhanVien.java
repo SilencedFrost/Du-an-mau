@@ -17,20 +17,12 @@ public class NhanVien {
         return MaNV;
     }
 
-    public String getMatKhau() {
-        return MatKhau;
-    }
-
     public String getVaiTro() {
         return VaiTro;
     }
 
     public void setMaNV(String MaNV) {
         this.MaNV = MaNV;
-    }
-
-    public void setMatKhau(String MatKhau) {
-        this.MatKhau = MatKhau;
     }
 
     public void setVaiTro(String VaiTro) {
