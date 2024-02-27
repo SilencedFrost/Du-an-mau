@@ -1,23 +1,24 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package UI;
 
-import Utils.Tools;
 import DAO.NhanVien_DAO;
+import Utils.Tools;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author SIlencedFrost
  */
-public class Login extends javax.swing.JFrame {
+public class LoginDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form Login
+     * Creates new form LoginDialog
      */
-    public Login() {
+    public LoginDialog(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         OnRun();
     }
@@ -39,9 +40,7 @@ public class Login extends javax.swing.JFrame {
         btnKetThuc = new javax.swing.JButton();
         imgGoldenBee = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
-        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Tên đăng nhập");
 
@@ -87,13 +86,13 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(btnDangNhap)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 58, Short.MAX_VALUE)))
+                        .addGap(0, 74, Short.MAX_VALUE)))
                 .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(imgGoldenBee, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -107,7 +106,8 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,15 +124,7 @@ public class Login extends javax.swing.JFrame {
             System.out.println("ehh");
         }
     }//GEN-LAST:event_btnDangNhapActionPerformed
-    
-    private void OnRun()
-    {
-        //Chỉnh về giữa màn hình
-        Tools.SetFrameToCenter(this);
-        
-        Tools.SetIcon(imgGoldenBee, "src/Images/ongvang.png");
-    }
-    
+
     private void btnKetThucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucActionPerformed
         var opt = JOptionPane.showConfirmDialog(this, "Bạn có muốn kết thúc ứng dụng không?", "Confirm", JOptionPane.YES_NO_OPTION);
         if(opt == JOptionPane.YES_OPTION)
@@ -141,6 +133,13 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnKetThucActionPerformed
 
+    private void OnRun()
+    {
+        Tools.SetIcon(imgGoldenBee, "src/Images/ongvang.png");
+        Tools.SetFrameToCenter(this);
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -158,20 +157,27 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                LoginDialog dialog = new LoginDialog(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

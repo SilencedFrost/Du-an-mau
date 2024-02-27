@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Utils.Tools;
+
 /**
  *
  * @author SIlencedFrost
@@ -15,8 +17,9 @@ public class Statistics extends javax.swing.JFrame {
      */
     public Statistics() {
         initComponents();
+        OnRun();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,26 +30,27 @@ public class Statistics extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        tabs = new javax.swing.JTabbedPane();
+        tabBangDiem = new javax.swing.JPanel();
         cboBangDiemKhoaHoc = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBangDiem = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
+        tabNguoiHoc = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblNguoiHoc = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
+        tabDiemChuyenDe = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblDiemChuyenDe = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
+        tabDoanhThu = new javax.swing.JPanel();
         lblDoanhThu = new javax.swing.JLabel();
         cboDoanhThu = new javax.swing.JComboBox<>();
         tblDoanhThu = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys - Tổng hợp & thống kê");
+        setResizable(false);
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(51, 51, 255));
@@ -67,24 +71,24 @@ public class Statistics extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblBangDiem);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout tabBangDiemLayout = new javax.swing.GroupLayout(tabBangDiem);
+        tabBangDiem.setLayout(tabBangDiemLayout);
+        tabBangDiemLayout.setHorizontalGroup(
+            tabBangDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabBangDiemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabBangDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(tabBangDiemLayout.createSequentialGroup()
                         .addComponent(cboBangDiemKhoaHoc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        tabBangDiemLayout.setVerticalGroup(
+            tabBangDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabBangDiemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabBangDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cboBangDiemKhoaHoc)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -92,7 +96,7 @@ public class Statistics extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("BẢNG ĐIỂM", jPanel1);
+        tabs.addTab("BẢNG ĐIỂM", tabBangDiem);
 
         tblNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,24 +111,24 @@ public class Statistics extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblNguoiHoc);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout tabNguoiHocLayout = new javax.swing.GroupLayout(tabNguoiHoc);
+        tabNguoiHoc.setLayout(tabNguoiHocLayout);
+        tabNguoiHocLayout.setHorizontalGroup(
+            tabNguoiHocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabNguoiHocLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        tabNguoiHocLayout.setVerticalGroup(
+            tabNguoiHocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabNguoiHocLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("NGƯỜI HỌC", jPanel2);
+        tabs.addTab("NGƯỜI HỌC", tabNguoiHoc);
 
         tblDiemChuyenDe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,24 +143,24 @@ public class Statistics extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblDiemChuyenDe);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout tabDiemChuyenDeLayout = new javax.swing.GroupLayout(tabDiemChuyenDe);
+        tabDiemChuyenDe.setLayout(tabDiemChuyenDeLayout);
+        tabDiemChuyenDeLayout.setHorizontalGroup(
+            tabDiemChuyenDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDiemChuyenDeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        tabDiemChuyenDeLayout.setVerticalGroup(
+            tabDiemChuyenDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDiemChuyenDeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("ĐIỂM CHUYÊN ĐỀ", jPanel3);
+        tabs.addTab("ĐIỂM CHUYÊN ĐỀ", tabDiemChuyenDe);
 
         lblDoanhThu.setText("DOANH THU");
 
@@ -173,24 +177,24 @@ public class Statistics extends javax.swing.JFrame {
         ));
         tblDoanhThu.setViewportView(jTable4);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout tabDoanhThuLayout = new javax.swing.GroupLayout(tabDoanhThu);
+        tabDoanhThu.setLayout(tabDoanhThuLayout);
+        tabDoanhThuLayout.setHorizontalGroup(
+            tabDoanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDoanhThuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabDoanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tblDoanhThu, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(tabDoanhThuLayout.createSequentialGroup()
                         .addComponent(lblDoanhThu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cboDoanhThu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        tabDoanhThuLayout.setVerticalGroup(
+            tabDoanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDoanhThuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabDoanhThuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDoanhThu)
                     .addComponent(cboDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -198,7 +202,7 @@ public class Statistics extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("DOANH THU", jPanel4);
+        tabs.addTab("DOANH THU", tabDoanhThu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,7 +211,7 @@ public class Statistics extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(tabs)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitle)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -219,13 +223,40 @@ public class Statistics extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
+                .addComponent(tabs)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void OnRun()
+    {
+        Tools.SetFrameToCenter(this);
+    }
+    
+    
+    public void OpenBangDiemTab()
+    {
+        tabs.setSelectedComponent(tabBangDiem);
+    }
+    
+    public void OpenNguoiHocTab()
+    {
+        tabs.setSelectedComponent(tabNguoiHoc);
+    }
+    
+    public void OpenDiemChuyenDeTab()
+    {
+        tabs.setSelectedComponent(tabDiemChuyenDe);
+    }
+    
+    public void OpenDoanhThuTab()
+    {
+        tabs.setSelectedComponent(tabDoanhThu);
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -266,17 +297,17 @@ public class Statistics extends javax.swing.JFrame {
     private javax.swing.JLabel cboBangDiemKhoaHoc;
     private javax.swing.JComboBox<String> cboDoanhThu;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable4;
     private javax.swing.JLabel lblDoanhThu;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel tabBangDiem;
+    private javax.swing.JPanel tabDiemChuyenDe;
+    private javax.swing.JPanel tabDoanhThu;
+    private javax.swing.JPanel tabNguoiHoc;
+    private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblBangDiem;
     private javax.swing.JTable tblDiemChuyenDe;
     private javax.swing.JScrollPane tblDoanhThu;

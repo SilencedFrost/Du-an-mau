@@ -19,7 +19,7 @@
     </Container>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="EduSys - &#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>

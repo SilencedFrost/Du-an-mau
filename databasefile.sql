@@ -128,17 +128,16 @@ begin
 end;
 go
 
-select * from NhanVien
 -- data insert
 
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values ('MinhNQ', N'123', N'Nguyễn Quốc Minh', 1)
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'LongNDH', N'songlong', N'Nguyễn Đình Hoàng Long', 0)
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'LongNDT', N'songlong', N'Nguyễn Đình Thiên Long', 0)
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'NghiemN', N'songlong', N'Nguyễn Nghiệm', 1)
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'NoPT', N'123456', N'Phạm Thị Nở', 0)
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'PheoNC', N'123456', N'Nguyễn Chí Phèo', 0)
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'TeoNV', N'songlong', N'Nguyễn Văn Tèo', 1)
-insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'ThaoLTH', N'songlong', N'Lê Thị Hương Thảo', 0)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values ('MinhNQ', '123', N'Nguyễn Quốc Minh', 1)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'LongNDH', 'songlong', N'Nguyễn Đình Hoàng Long', 0)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'LongNDT', 'songlong', N'Nguyễn Đình Thiên Long', 0)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'NghiemN', 'songlong', N'Nguyễn Nghiệm', 1)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'NoPT', '123456', N'Phạm Thị Nở', 0)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'PheoNC', '123456', N'Nguyễn Chí Phèo', 0)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'TeoNV', 'songlong', N'Nguyễn Văn Tèo', 1)
+insert into NhanVien(MaNV, MatKhau, HoTen, VaiTro) values (N'ThaoLTH', 'songlong', N'Lê Thị Hương Thảo', 0)
 
 select * from NhanVien
 go

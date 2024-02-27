@@ -14,12 +14,10 @@ public class NhanVien_DAO {
     public static boolean login(String MaNV, String MatKhau)
     {
         
-        try
+        try(Connection conn = Tools.GetCon())
         {
-            Connection conn = Tools.GetCon();
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery("select dbo.UserLogin('" + MaNV + "', '" + MatKhau + "') as status");
-            System.out.println("select dbo.UserLogin('" + MaNV + "', '" + MatKhau + "') as status");
             rs.next();
             boolean result = rs.getBoolean("status");
             conn.close();

@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Utils.Tools;
+
 /**
  *
  * @author SIlencedFrost
@@ -15,6 +17,7 @@ public class ChangePass extends javax.swing.JFrame {
      */
     public ChangePass() {
         initComponents();
+        OnRun();
     }
 
     /**
@@ -56,7 +59,7 @@ public class ChangePass extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys - Đổi mật khẩu");
         setResizable(false);
 
@@ -64,7 +67,7 @@ public class ChangePass extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("ĐỔI MẬT KHẨU");
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel2.setText("Tên đăng nhập");
 
@@ -114,7 +117,7 @@ public class ChangePass extends javax.swing.JFrame {
 
         jTextField4.setText("jTextField2");
 
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Refresh.png"))); // NOI18N
         jButton1.setText("Đồng ý");
@@ -217,7 +220,12 @@ public class ChangePass extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void OnRun()
+    {
+        Tools.SetFrameToCenter(this);
+    }
+    
     /**
      * @param args the command line arguments
      */

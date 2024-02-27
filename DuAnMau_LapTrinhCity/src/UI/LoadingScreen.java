@@ -5,6 +5,12 @@
 package UI;
 
 import Utils.Tools;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.Timer;
 
 
 /**
@@ -32,13 +38,15 @@ public class LoadingScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         imgFPTLogo = new javax.swing.JLabel();
-        pb = new javax.swing.JProgressBar();
+        progressBar = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
-        pb.setForeground(new java.awt.Color(255, 102, 0));
+        progressBar.setBackground(new java.awt.Color(255, 204, 102));
+        progressBar.setForeground(new java.awt.Color(0, 0, 0));
+        progressBar.setStringPainted(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -48,7 +56,7 @@ public class LoadingScreen extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(imgFPTLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
-            .addComponent(pb, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+            .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -56,7 +64,7 @@ public class LoadingScreen extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(imgFPTLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pb, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -67,7 +75,22 @@ public class LoadingScreen extends javax.swing.JFrame {
         //Chỉnh về giữa màn hình
         Tools.SetFrameToCenter(this);
         
-        Tools.SetIcon(imgFPTLogo, "src/Images/ongvang.png");
+        Tools.SetIcon(imgFPTLogo, "src/Images/FPTPolyLogo.png");
+        
+        ActionListener updateClockAction = (ActionEvent e) -> {
+            progressBar.setValue(progressBar.getValue() + 1);
+            progressBar.setString(progressBar.getValue() + "%");
+            if(progressBar.getValue() == 100)
+            {
+                new Login().setVisible(true);
+                ((Timer)e.getSource()).stop();
+                this.dispose();
+            }
+        };
+        
+        //Action event
+        Timer t = new Timer(12, updateClockAction);
+        t.start();
     }
     /**
      * @param args the command line arguments
@@ -106,6 +129,6 @@ public class LoadingScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imgFPTLogo;
-    private javax.swing.JProgressBar pb;
+    private javax.swing.JProgressBar progressBar;
     // End of variables declaration//GEN-END:variables
 }

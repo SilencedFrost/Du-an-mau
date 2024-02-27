@@ -30,7 +30,7 @@
               <Component id="imgFPTLogo" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
-          <Component id="pb" alignment="0" pref="530" max="32767" attributes="0"/>
+          <Component id="progressBar" alignment="0" pref="530" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -39,7 +39,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="imgFPTLogo" min="-2" pref="168" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pb" min="-2" pref="17" max="-2" attributes="0"/>
+              <Component id="progressBar" min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,11 +47,15 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="imgFPTLogo">
     </Component>
-    <Component class="javax.swing.JProgressBar" name="pb">
+    <Component class="javax.swing.JProgressBar" name="progressBar">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="66" red="ff" type="rgb"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="cc" red="ff" type="rgb"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Utils.Tools;
+
 /**
  *
  * @author SIlencedFrost
@@ -15,6 +17,7 @@ public class ManageSubject extends javax.swing.JFrame {
      */
     public ManageSubject() {
         initComponents();
+        OnRun();
     }
 
     /**
@@ -53,7 +56,7 @@ public class ManageSubject extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys - Quản lý chuyên đề");
         setResizable(false);
 
@@ -294,6 +297,11 @@ public class ManageSubject extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void OnRun()
+    {
+        Tools.SetFrameToCenter(this);
+    }
+    
     /**
      * @param args the command line arguments
      */
