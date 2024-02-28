@@ -6,6 +6,7 @@ package UI;
 
 import DAO.NhanVien_DAO;
 import Utils.Tools;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -116,7 +117,9 @@ public class LoginDialog extends javax.swing.JDialog {
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         if(NhanVien_DAO.login(txtUsername.getText(), new String(txtMatKhau.getPassword())))
         {
-            new MainMenu().setVisible(true);
+            var menu = new MainMenu();
+            menu.LoginAs(txtUsername.getText());
+            menu.setVisible(true);
             this.dispose();
         }
         else

@@ -17,7 +17,7 @@ import javax.swing.Timer;
  * @author thnrg
  */
 public class MainMenu extends javax.swing.JFrame {
-
+    protected String loginSessionAs;
     /**
      * Creates new form MainMeny
      */
@@ -262,6 +262,11 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Lists.png"))); // NOI18N
         jMenuItem1.setText("Chuyên đề");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -282,12 +287,22 @@ public class MainMenu extends javax.swing.JFrame {
         menuQLHocVien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuQLHocVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/User.png"))); // NOI18N
         menuQLHocVien.setText("Học viên");
+        menuQLHocVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuQLHocVienActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuQLHocVien);
         jMenu2.add(jSeparator5);
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Users.png"))); // NOI18N
         jMenuItem5.setText("Nhân viên");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
@@ -371,11 +386,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
     private void btnHocVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHocVienActionPerformed
-        new ManageStudents().setVisible(true);
+        new ManageStudents(this, true).setVisible(true);
     }//GEN-LAST:event_btnHocVienActionPerformed
 
     private void btnKhoaHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKhoaHocActionPerformed
-        new ManageCourse().setVisible(true);
+        new ManageCourse(this, true).setVisible(true);
     }//GEN-LAST:event_btnKhoaHocActionPerformed
 
     private void btnNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNguoiHocActionPerformed
@@ -383,7 +398,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNguoiHocActionPerformed
 
     private void btnChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChuyenDeActionPerformed
-        new ManageSubject().setVisible(true);
+        new ManageSubjects(this, true).setVisible(true);
     }//GEN-LAST:event_btnChuyenDeActionPerformed
 
     private void btnKetThucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucActionPerformed
@@ -391,31 +406,31 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKetThucActionPerformed
 
     private void btnTKDiemChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKDiemChuyenDeActionPerformed
-        var stats = new Statistics();
+        var stats = new StatisticsTemp();
         stats.setVisible(true);
         stats.OpenDiemChuyenDeTab();
     }//GEN-LAST:event_btnTKDiemChuyenDeActionPerformed
 
     private void btnMenuTKBangDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTKBangDiemActionPerformed
-        var stats = new Statistics();
+        var stats = new StatisticsTemp();
         stats.setVisible(true);
         stats.OpenBangDiemTab();
     }//GEN-LAST:event_btnMenuTKBangDiemActionPerformed
 
     private void btnTKLuongNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKLuongNguoiHocActionPerformed
-        var stats = new Statistics();
+        var stats = new StatisticsTemp();
         stats.setVisible(true);
         stats.OpenNguoiHocTab();
     }//GEN-LAST:event_btnTKLuongNguoiHocActionPerformed
 
     private void btnTKDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKDoanhThuActionPerformed
-        var stats = new Statistics();
+        var stats = new StatisticsTemp();
         stats.setVisible(true);
         stats.OpenDoanhThuTab();
     }//GEN-LAST:event_btnTKDoanhThuActionPerformed
 
     private void btnMenuDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDoiMatKhauActionPerformed
-        new ChangePass().setVisible(true);
+        new ChangePass(this, true).setVisible(true);
     }//GEN-LAST:event_btnMenuDoiMatKhauActionPerformed
 
     private void btnMenuKetThucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKetThucActionPerformed
@@ -435,6 +450,23 @@ public class MainMenu extends javax.swing.JFrame {
         new ManageLearners(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        new ManageEmployee(this, true).setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void menuQLHocVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuQLHocVienActionPerformed
+        new ManageStudents(this, true).setVisible(true);
+    }//GEN-LAST:event_menuQLHocVienActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        new ManageSubjects(this, true).setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    public void LoginAs(String loginID)
+    {
+        loginSessionAs = loginID;
+    }
+    
     private void OnRun()
     {
         Tools.SetFrameToCenter(this);

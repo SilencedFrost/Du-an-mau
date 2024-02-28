@@ -116,7 +116,9 @@ public class Login extends javax.swing.JFrame {
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         if(NhanVien_DAO.login(txtUsername.getText(), new String(txtMatKhau.getPassword())))
         {
-            new MainMenu().setVisible(true);
+            var menu = new MainMenu();
+            menu.LoginAs(txtUsername.getText());
+            menu.setVisible(true);
             this.dispose();
         }
         else
