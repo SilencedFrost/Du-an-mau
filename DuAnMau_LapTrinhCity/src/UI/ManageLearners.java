@@ -75,11 +75,7 @@ public class ManageLearners extends javax.swing.JDialog {
 
         jLabel3.setText("Mã người học");
 
-        jTextField2.setText("jTextField2");
-
         jLabel4.setText("Họ và tên");
-
-        jTextField3.setText("jTextField3");
 
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -91,8 +87,6 @@ public class ManageLearners extends javax.swing.JDialog {
 
         jLabel6.setText("Điện thoại");
 
-        jTextField4.setText("jTextField4");
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -102,7 +96,7 @@ public class ManageLearners extends javax.swing.JDialog {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                 .addGap(129, 129, 129))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,11 +124,7 @@ public class ManageLearners extends javax.swing.JDialog {
 
         jLabel7.setText("Ngày sinh");
 
-        jTextField5.setText("jTextField5");
-
         jLabel8.setText("Địa chỉ email");
-
-        jTextField6.setText("jTextField6");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -149,7 +139,7 @@ public class ManageLearners extends javax.swing.JDialog {
                     .addComponent(jTextField5)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 106, Short.MAX_VALUE))
+                        .addGap(0, 145, Short.MAX_VALUE))
                     .addComponent(jTextField6)))
         );
         jPanel6Layout.setVerticalGroup(
@@ -203,7 +193,7 @@ public class ManageLearners extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField2)
                     .addComponent(jTextField3)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
                     .addComponent(jScrollPane2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,8 +243,6 @@ public class ManageLearners extends javax.swing.JDialog {
 
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, java.awt.Color.black, null, null));
 
-        jTextField1.setText("jTextField1");
-
         jButton1.setText("Tìm");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -263,7 +251,7 @@ public class ManageLearners extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -302,7 +290,7 @@ public class ManageLearners extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -329,7 +317,7 @@ public class ManageLearners extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

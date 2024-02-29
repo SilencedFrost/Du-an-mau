@@ -52,7 +52,7 @@ public class NguoiHoc_DAO {
             row[0] = nh.getMaNH();
             row[1] = nh.getHoTen();
             row[2] = nh.getNgaySinh();
-            row[3] = nh.isGioiTinh();
+            row[3] = (nh.isGioiTinh())?"Nam":"Nữ";
             row[4] = nh.getDienThoai();
             row[5] = nh.getEmail();
             row[6] = nh.getGhiChu();

@@ -7,6 +7,8 @@ import Models.ChuyenDe;
 import Utils.Tools;
 import java.util.ArrayList;
 import java.sql.*;
+import java.util.stream.Collectors;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +35,6 @@ public  class ChuyenDe_DAO {
                 cd.setHinh(rs.getString("Hinh"));
                 cd.setMoTa(rs.getString("MoTa"));
                 chuyenDeList.add(cd);
-                System.out.println("got data");
             }
             conn.close();
         } 
@@ -61,5 +62,61 @@ public  class ChuyenDe_DAO {
         }
 
         table.setModel(model);
+    }
+    
+    public static ArrayList<String> getColumn(String columnName) {
+        ArrayList<String> columnData = new ArrayList<>();
+
+        try (Connection conn = Tools.GetCon()) {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT " + columnName + " FROM ChuyenDe");
+
+            while (rs.next()) {
+                columnData.add(rs.getString(columnName));
+            }
+            conn.close();
+        } catch (SQLException e) {
+        }
+
+        return columnData;
+    }
+    
+    public static void fillComboBox(JComboBox comboBox, ArrayList<String> data) {
+        comboBox.removeAllItems();
+
+        for (String item : data) {
+            comboBox.addItem(item);
+        }
+    }
+    
+    public static ArrayList<ChuyenDe> filterChuyenDe(ArrayList<ChuyenDe> list, String attribute, String condition) {
+        ArrayList<ChuyenDe> filteredList = new ArrayList<>();
+
+        for (ChuyenDe cd : list) {
+            switch (attribute) {
+                case "maCD" -> {
+                    if (cd.getMaCD().equals(condition)) {
+                        filteredList.add(cd);
+                    }
+                }
+                case "tenCD" -> {
+                    if (cd.getTenCD().equals(condition)) {
+                        filteredList.add(cd);
+                    }
+                }
+                case "hinh" -> {
+                    if (cd.getHinh().equals(condition)) {
+                        filteredList.add(cd);
+                    }
+                }
+                case "moTa" -> {
+                    if (cd.getMoTa().equals(condition)) {
+                        filteredList.add(cd);
+                    }
+                }
+            }
+        }
+
+        return filteredList;
     }
 }

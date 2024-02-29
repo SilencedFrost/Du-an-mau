@@ -32,7 +32,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jTabbedPane1" alignment="0" pref="520" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -83,7 +83,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPanel4" alignment="0" pref="508" max="32767" attributes="0"/>
+                          <Component id="jPanel4" alignment="0" pref="585" max="32767" attributes="0"/>
                           <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -143,9 +143,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -153,9 +150,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField3"/>
-              </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel4">
 
@@ -172,7 +166,7 @@
                                   <Component id="jRadioButton1" alignment="0" pref="64" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" pref="111" max="32767" attributes="0"/>
+                              <Component id="jRadioButton2" pref="149" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -225,9 +219,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField4">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField4"/>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -246,7 +237,7 @@
                                   <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel8" min="-2" pref="85" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="106" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="145" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -275,9 +266,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField5">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField5"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
@@ -285,9 +273,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField6">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField6"/>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -360,7 +345,7 @@
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" alignment="0" pref="508" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" pref="585" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -402,7 +387,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField1" pref="429" max="32767" attributes="0"/>
+                          <Component id="jTextField1" pref="506" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="55" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -424,9 +409,6 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JTextField" name="jTextField1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton1">
                   <Properties>

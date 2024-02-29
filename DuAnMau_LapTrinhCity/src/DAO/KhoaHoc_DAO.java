@@ -8,6 +8,7 @@ import Models.KhoaHoc;
 import Utils.Tools;
 import java.util.ArrayList;
 import java.sql.*;
+import java.util.stream.Collectors;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -64,4 +65,35 @@ public class KhoaHoc_DAO {
 
         table.setModel(model);
     }
+    
+    public static ArrayList<KhoaHoc> filterKhoaHoc(ArrayList<KhoaHoc> list, String attribute, String condition) {
+    ArrayList<KhoaHoc> filteredList = new ArrayList<>();
+
+    for (KhoaHoc kh : list) {
+        switch (attribute) {
+            case "maKH":
+                if (String.valueOf(kh.getMaKH()).equals(condition)) {
+                    filteredList.add(kh);
+                }
+                break;
+            case "maCD":
+                if (kh.getMaCD().equals(condition)) {
+                    filteredList.add(kh);
+                }
+                break;
+            case "ghiChu":
+                if (kh.getGhiChu().equals(condition)) {
+                    filteredList.add(kh);
+                }
+                break;
+            case "maNV":
+                if (kh.getMaNV().equals(condition)) {
+                    filteredList.add(kh);
+                }
+                break;
+        }
+    }
+
+    return filteredList;
+}
 }

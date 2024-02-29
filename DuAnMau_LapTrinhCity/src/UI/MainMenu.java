@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JDialog;
 import javax.swing.Timer;
 
 /**
@@ -17,9 +18,9 @@ import javax.swing.Timer;
  * @author thnrg
  */
 public class MainMenu extends javax.swing.JFrame {
-    protected String loginSessionAs;
+    protected String sessionID;
     /**
-     * Creates new form MainMeny
+     * Creates new form MainMenu
      */
     public MainMenu() {
         initComponents();
@@ -435,7 +436,9 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTKDoanhThuActionPerformed
 
     private void btnMenuDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDoiMatKhauActionPerformed
-        new ChangePass(this, true).setVisible(true);
+        var changepass =  new ChangePass(this, true);
+        changepass.setSession(sessionID);
+        changepass.setVisible(true);
     }//GEN-LAST:event_btnMenuDoiMatKhauActionPerformed
 
     private void btnMenuKetThucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKetThucActionPerformed
@@ -473,8 +476,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     public void LoginAs(String loginID)
     {
-        loginSessionAs = loginID;
-        System.out.println("Logged in as " + loginSessionAs);
+        sessionID = loginID;
+        System.out.println("Logged in as " + sessionID);
     }
     
     private void OnRun()
