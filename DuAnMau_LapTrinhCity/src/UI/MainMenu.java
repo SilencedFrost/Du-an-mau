@@ -59,12 +59,12 @@ public class MainMenu extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         btnMenuKetThuc = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuQLChuyenDe = new javax.swing.JMenuItem();
+        menuQLKhoaHoc = new javax.swing.JMenuItem();
+        menuQLNguoiHoc = new javax.swing.JMenuItem();
         menuQLHocVien = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menuQLNhanVien = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnMenuTKBangDiem = new javax.swing.JMenuItem();
         btnTKLuongNguoiHoc = new javax.swing.JMenuItem();
@@ -259,30 +259,35 @@ public class MainMenu extends javax.swing.JFrame {
 
         jMenu2.setText("Quản lý");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Lists.png"))); // NOI18N
-        jMenuItem1.setText("Chuyên đề");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuQLChuyenDe.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuQLChuyenDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Lists.png"))); // NOI18N
+        menuQLChuyenDe.setText("Chuyên đề");
+        menuQLChuyenDe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuQLChuyenDeActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(menuQLChuyenDe);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Certificate.png"))); // NOI18N
-        jMenuItem2.setText("Khóa học");
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Conference.png"))); // NOI18N
-        jMenuItem3.setText("Người học");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuQLKhoaHoc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuQLKhoaHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Certificate.png"))); // NOI18N
+        menuQLKhoaHoc.setText("Khóa học");
+        menuQLKhoaHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuQLKhoaHocActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(menuQLKhoaHoc);
+
+        menuQLNguoiHoc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuQLNguoiHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Conference.png"))); // NOI18N
+        menuQLNguoiHoc.setText("Người học");
+        menuQLNguoiHoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuQLNguoiHocActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuQLNguoiHoc);
 
         menuQLHocVien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuQLHocVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/User.png"))); // NOI18N
@@ -295,15 +300,15 @@ public class MainMenu extends javax.swing.JFrame {
         jMenu2.add(menuQLHocVien);
         jMenu2.add(jSeparator5);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Users.png"))); // NOI18N
-        jMenuItem5.setText("Nhân viên");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        menuQLNhanVien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuQLNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Users.png"))); // NOI18N
+        menuQLNhanVien.setText("Nhân viên");
+        menuQLNhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                menuQLNhanVienActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenu2.add(menuQLNhanVien);
 
         jMenuBar1.add(jMenu2);
 
@@ -406,27 +411,27 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKetThucActionPerformed
 
     private void btnTKDiemChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKDiemChuyenDeActionPerformed
-        var stats = new StatisticsTemp();
-        stats.setVisible(true);
+        var stats = new Statistics(this, true);
         stats.OpenDiemChuyenDeTab();
+        stats.setVisible(true);
     }//GEN-LAST:event_btnTKDiemChuyenDeActionPerformed
 
     private void btnMenuTKBangDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTKBangDiemActionPerformed
-        var stats = new StatisticsTemp();
-        stats.setVisible(true);
+        var stats = new Statistics(this, true);
         stats.OpenBangDiemTab();
+        stats.setVisible(true);
     }//GEN-LAST:event_btnMenuTKBangDiemActionPerformed
 
     private void btnTKLuongNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKLuongNguoiHocActionPerformed
-        var stats = new StatisticsTemp();
-        stats.setVisible(true);
+        var stats = new Statistics(this, true);
         stats.OpenNguoiHocTab();
+        stats.setVisible(true);
     }//GEN-LAST:event_btnTKLuongNguoiHocActionPerformed
 
     private void btnTKDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKDoanhThuActionPerformed
-        var stats = new StatisticsTemp();
-        stats.setVisible(true);
+        var stats = new Statistics(this, true);
         stats.OpenDoanhThuTab();
+        stats.setVisible(true);
     }//GEN-LAST:event_btnTKDoanhThuActionPerformed
 
     private void btnMenuDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDoiMatKhauActionPerformed
@@ -446,25 +451,30 @@ public class MainMenu extends javax.swing.JFrame {
         new LoginDialog(this, true).setVisible(true);
     }//GEN-LAST:event_btnMenuDangNhapActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuQLNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuQLNguoiHocActionPerformed
         new ManageLearners(this, true).setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuQLNguoiHocActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void menuQLNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuQLNhanVienActionPerformed
         new ManageEmployee(this, true).setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_menuQLNhanVienActionPerformed
 
     private void menuQLHocVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuQLHocVienActionPerformed
         new ManageStudents(this, true).setVisible(true);
     }//GEN-LAST:event_menuQLHocVienActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuQLChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuQLChuyenDeActionPerformed
         new ManageSubjects(this, true).setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuQLChuyenDeActionPerformed
+
+    private void menuQLKhoaHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuQLKhoaHocActionPerformed
+        new ManageCourse(this, true).setVisible(true);
+    }//GEN-LAST:event_menuQLKhoaHocActionPerformed
 
     public void LoginAs(String loginID)
     {
         loginSessionAs = loginID;
+        System.out.println("Logged in as " + loginSessionAs);
     }
     
     private void OnRun()
@@ -540,11 +550,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -556,6 +562,10 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblClock;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JMenuItem menuQLChuyenDe;
     private javax.swing.JMenuItem menuQLHocVien;
+    private javax.swing.JMenuItem menuQLKhoaHoc;
+    private javax.swing.JMenuItem menuQLNguoiHoc;
+    private javax.swing.JMenuItem menuQLNhanVien;
     // End of variables declaration//GEN-END:variables
 }
