@@ -55,4 +55,35 @@ public class HocVien_DAO {
 
         table.setModel(model);
     }
+    
+    public static ArrayList<HocVien> filterHocVien(ArrayList<HocVien> list, String attribute, String condition) {
+        ArrayList<HocVien> filteredList = new ArrayList<>();
+
+        for (HocVien hv : list) {
+            switch (attribute) {
+                case "maHV" -> {
+                    if (String.valueOf(hv.getMaHV()).equals(condition)) {
+                        filteredList.add(hv);
+                    }
+                }
+                case "maKH" -> {
+                    if (String.valueOf(hv.getMaKH()).equals(condition)) {
+                        filteredList.add(hv);
+                    }
+                }
+                case "maNH" -> {
+                    if (hv.getMaNH().equals(condition)) {
+                        filteredList.add(hv);
+                    }
+                }
+                case "diem" -> {
+                    if (String.valueOf(hv.getDiem()).equals(condition)) {
+                        filteredList.add(hv);
+                    }
+                }
+            }
+        }
+
+        return filteredList;
+    }
 }

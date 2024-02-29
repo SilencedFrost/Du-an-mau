@@ -63,4 +63,45 @@ public class NguoiHoc_DAO {
 
         table.setModel(model);
     }
+    
+    public static ArrayList<NguoiHoc> filterNguoiHoc(ArrayList<NguoiHoc> list, String attribute, String condition) {
+        ArrayList<NguoiHoc> filteredList = new ArrayList<>();
+
+        for (NguoiHoc nh : list) {
+            switch (attribute) {
+                case "maNH" -> {
+                    if (nh.getMaNH().equals(condition)) {
+                        filteredList.add(nh);
+                    }
+                }
+                case "hoTen" -> {
+                    if (nh.getHoTen().equals(condition)) {
+                        filteredList.add(nh);
+                    }
+                }
+                case "dienThoai" -> {
+                    if (nh.getDienThoai().equals(condition)) {
+                        filteredList.add(nh);
+                    }
+                }
+                case "email" -> {
+                    if (nh.getEmail().equals(condition)) {
+                        filteredList.add(nh);
+                    }
+                }
+                case "ghiChu" -> {
+                    if (nh.getGhiChu().equals(condition)) {
+                        filteredList.add(nh);
+                    }
+                }
+                case "maNV" -> {
+                    if (nh.getMaNV().equals(condition)) {
+                        filteredList.add(nh);
+                    }
+                }
+            }
+        }
+
+        return filteredList;
+    }
 }
