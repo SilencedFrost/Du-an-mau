@@ -28,4 +28,12 @@ public class NhanVien {
     public void setVaiTro(String VaiTro) {
         this.VaiTro = VaiTro;
     }
+    
+    public String getHoTen() {
+        return HoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        this.HoTen = hoTen;
+    }
 }
