@@ -11,13 +11,13 @@ package Models;
 public class NhanVien {
     protected String MaNV;
     protected String HoTen;
-    protected String VaiTro;
+    protected boolean VaiTro;
 
     public String getMaNV() {
         return MaNV;
     }
 
-    public String getVaiTro() {
+    public boolean isVaiTro() {
         return VaiTro;
     }
 
@@ -25,7 +25,7 @@ public class NhanVien {
         this.MaNV = MaNV;
     }
 
-    public void setVaiTro(String VaiTro) {
+    public void setVaiTro(boolean VaiTro) {
         this.VaiTro = VaiTro;
     }
     

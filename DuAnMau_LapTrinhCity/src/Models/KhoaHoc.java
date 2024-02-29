@@ -16,7 +16,7 @@ public class KhoaHoc {
     protected float hocPhi;
     protected int thoiLuong;
     protected Date ngayKG;
-    protected String khoiChu;
+    protected String ghiChu;
     protected String maNV;
     protected Date ngayTao;
 
@@ -60,12 +60,12 @@ public class KhoaHoc {
         this.ngayKG = ngayKG;
     }
 
-    public String getKhoiChu() {
-        return khoiChu;
+    public String getGhiChu() {
+        return ghiChu;
     }
 
-    public void setKhoiChu(String khoiChu) {
-        this.khoiChu = khoiChu;
+    public void setGhiChu(String khoiChu) {
+        this.ghiChu = khoiChu;
     }
 
     public String getMaNV() {

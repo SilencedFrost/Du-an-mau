@@ -4,6 +4,7 @@
  */
 package UI;
 
+import DAO.NhanVien_DAO;
 import Utils.Tools;
 
 /**
@@ -50,7 +51,7 @@ public class ManageEmployee extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblNhanVien = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys - Quản lý nhân viên quản trị");
@@ -181,7 +182,7 @@ public class ManageEmployee extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("CẬP NHẬT", jPanel1);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -192,7 +193,7 @@ public class ManageEmployee extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblNhanVien);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -258,6 +259,7 @@ public class ManageEmployee extends javax.swing.JDialog {
     private void OnRun()
     {
         Tools.SetFrameToCenter(this);
+        NhanVien_DAO.fillTable(tblNhanVien, NhanVien_DAO.getAllNhanVien());
     }
     
     /**
@@ -319,10 +321,10 @@ public class ManageEmployee extends javax.swing.JDialog {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTable tblNhanVien;
     // End of variables declaration//GEN-END:variables
 }
