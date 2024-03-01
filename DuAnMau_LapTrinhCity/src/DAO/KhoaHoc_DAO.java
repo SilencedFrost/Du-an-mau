@@ -8,7 +8,6 @@ import Models.KhoaHoc;
 import Utils.Tools;
 import java.util.ArrayList;
 import java.sql.*;
-import java.util.stream.Collectors;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -67,33 +66,74 @@ public class KhoaHoc_DAO {
     }
     
     public static ArrayList<KhoaHoc> filterKhoaHoc(ArrayList<KhoaHoc> list, String attribute, String condition) {
-    ArrayList<KhoaHoc> filteredList = new ArrayList<>();
+        ArrayList<KhoaHoc> filteredList = new ArrayList<>();
 
-    for (KhoaHoc kh : list) {
-        switch (attribute) {
-            case "maKH":
-                if (String.valueOf(kh.getMaKH()).equals(condition)) {
-                    filteredList.add(kh);
+        for (KhoaHoc kh : list) {
+            switch (attribute) {
+                case "maKH" -> {
+                    if (String.valueOf(kh.getMaKH()).equals(condition)) {
+                        filteredList.add(kh);
+                    }
                 }
-                break;
-            case "maCD":
-                if (kh.getMaCD().equals(condition)) {
-                    filteredList.add(kh);
+                case "maCD" -> {
+                    if (kh.getMaCD().equals(condition)) {
+                        filteredList.add(kh);
+                    }
                 }
-                break;
-            case "ghiChu":
-                if (kh.getGhiChu().equals(condition)) {
-                    filteredList.add(kh);
+                case "ghiChu" -> {
+                    if (kh.getGhiChu().equals(condition)) {
+                        filteredList.add(kh);
+                    }
                 }
-                break;
-            case "maNV":
-                if (kh.getMaNV().equals(condition)) {
-                    filteredList.add(kh);
+                case "maNV" -> {
+                    if (kh.getMaNV().equals(condition)) {
+                        filteredList.add(kh);
+                    }
                 }
-                break;
+            }
         }
-    }
 
-    return filteredList;
-}
+        return filteredList;
+    }
+    
+    public static ArrayList<String> getColumn(ArrayList<KhoaHoc> list, String attribute) {
+        ArrayList<String> columnData = new ArrayList<>();
+
+        for (KhoaHoc kh : list) {
+            switch (attribute) {
+                case "maKH" -> columnData.add(String.valueOf(kh.getMaKH()));
+                case "maCD" -> columnData.add(kh.getMaCD());
+                case "hocPhi" -> columnData.add(String.valueOf(kh.getHocPhi()));
+                case "thoiLuong" -> columnData.add(String.valueOf(kh.getThoiLuong()));
+                case "ngayKG" -> columnData.add(kh.getNgayKG().toString());
+                case "ghiChu" -> columnData.add(kh.getGhiChu());
+                case "maNV" -> columnData.add(kh.getMaNV());
+                case "ngayTao" -> columnData.add(kh.getNgayTao().toString());
+            }
+        }
+        
+        if(columnData.isEmpty())
+        {
+            columnData.add("None");
+        }
+        return columnData;
+    }
+    
+    public static ArrayList<String> getColumn(String columnName) {
+        ArrayList<String> columnData = new ArrayList<>();
+
+        try {
+            Connection conn = Tools.GetCon();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT " + columnName + " FROM KhoaHoc");
+
+            while (rs.next()) {
+                columnData.add(rs.getString(columnName));
+            }
+        } 
+        catch (SQLException e) {
+        }
+
+        return columnData;
+    }
 }

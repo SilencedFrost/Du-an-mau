@@ -4,9 +4,12 @@
  */
 package UI;
 
+import DAO.ChuyenDe_DAO;
 import DAO.HocVien_DAO;
+import DAO.KhoaHoc_DAO;
 import DAO.NguoiHoc_DAO;
 import Utils.Tools;
+import java.awt.event.ItemEvent;
 
 /**
  *
@@ -16,6 +19,8 @@ public class ManageStudents extends javax.swing.JDialog {
 
     /**
      * Creates new form ManageStudents
+     * @param parent
+     * @param modal
      */
     public ManageStudents(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -36,10 +41,10 @@ public class ManageStudents extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboChuyenDe = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cboKhoaHoc = new javax.swing.JComboBox<>();
         tabs = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -63,7 +68,12 @@ public class ManageStudents extends javax.swing.JDialog {
 
         jLabel2.setText("Chuyên đề");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboChuyenDe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboChuyenDe.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cboChuyenDeItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -73,7 +83,7 @@ public class ManageStudents extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jComboBox1, 0, 266, Short.MAX_VALUE)
+                .addComponent(cboChuyenDe, 0, 266, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -81,7 +91,7 @@ public class ManageStudents extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cboChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -89,7 +99,12 @@ public class ManageStudents extends javax.swing.JDialog {
 
         jLabel3.setText("Khóa học");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboKhoaHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboKhoaHoc.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cboKhoaHocItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -101,7 +116,7 @@ public class ManageStudents extends javax.swing.JDialog {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jComboBox2, 0, 260, Short.MAX_VALUE))
+                    .addComponent(cboKhoaHoc, 0, 260, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -109,7 +124,7 @@ public class ManageStudents extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cboKhoaHoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -208,7 +223,7 @@ public class ManageStudents extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -232,12 +247,27 @@ public class ManageStudents extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cboChuyenDeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboChuyenDeItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            Tools.loadComboBox(cboKhoaHoc, KhoaHoc_DAO.getColumn(KhoaHoc_DAO.filterKhoaHoc(KhoaHoc_DAO.getAllKhoaHoc(), "maCD", cboChuyenDe.getSelectedItem().toString()), "maKH"));
+            HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.filterHocVien(HocVien_DAO.getAllHocVien(), "maKH", cboKhoaHoc.getSelectedItem().toString()));
+        }
+    }//GEN-LAST:event_cboChuyenDeItemStateChanged
+
+    private void cboKhoaHocItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboKhoaHocItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.filterHocVien(HocVien_DAO.getAllHocVien(), "maKH", cboKhoaHoc.getSelectedItem().toString()));
+        }
+    }//GEN-LAST:event_cboKhoaHocItemStateChanged
+
     
     private void OnRun()
     {
         Tools.SetFrameToCenter(this);
-        HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.getAllHocVien());
         NguoiHoc_DAO.fillTable(tblNguoiHoc, NguoiHoc_DAO.getAllNguoiHoc());
+        Tools.loadComboBox(cboChuyenDe, ChuyenDe_DAO.getColumn("MaCD"));
+        Tools.loadComboBox(cboKhoaHoc, KhoaHoc_DAO.getColumn(KhoaHoc_DAO.filterKhoaHoc(KhoaHoc_DAO.getAllKhoaHoc(), "maCD", cboChuyenDe.getSelectedItem().toString()), "maKH"));
+        HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.filterHocVien(HocVien_DAO.getAllHocVien(), "maKH", cboKhoaHoc.getSelectedItem().toString()));
     }
     
     /**
@@ -285,11 +315,11 @@ public class ManageStudents extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cboChuyenDe;
+    private javax.swing.JComboBox<String> cboKhoaHoc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

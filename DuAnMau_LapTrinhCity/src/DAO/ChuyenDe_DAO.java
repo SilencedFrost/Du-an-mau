@@ -7,8 +7,6 @@ import Models.ChuyenDe;
 import Utils.Tools;
 import java.util.ArrayList;
 import java.sql.*;
-import java.util.stream.Collectors;
-import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -75,19 +73,29 @@ public  class ChuyenDe_DAO {
                 columnData.add(rs.getString(columnName));
             }
             conn.close();
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) {
         }
 
         return columnData;
     }
     
-    public static void fillComboBox(JComboBox comboBox, ArrayList<String> data) {
-        comboBox.removeAllItems();
+    public ArrayList<String> getColumn(ArrayList<ChuyenDe> list, String attribute) {
+    ArrayList<String> columnData = new ArrayList<>();
 
-        for (String item : data) {
-            comboBox.addItem(item);
+    for (ChuyenDe cd : list) {
+        switch (attribute) {
+            case "maCD" -> columnData.add(cd.getMaCD());
+            case "tenCD" -> columnData.add(cd.getTenCD());
+            case "hocPhi" -> columnData.add(String.valueOf(cd.getHocPhi()));
+            case "thoiLuong" -> columnData.add(String.valueOf(cd.getThoiLuong()));
+            case "hinh" -> columnData.add(cd.getHinh());
+            case "moTa" -> columnData.add(cd.getMoTa());
         }
     }
+
+    return columnData;
+}
     
     public static ArrayList<ChuyenDe> filterChuyenDe(ArrayList<ChuyenDe> list, String attribute, String condition) {
         ArrayList<ChuyenDe> filteredList = new ArrayList<>();

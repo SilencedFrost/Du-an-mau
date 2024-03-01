@@ -7,9 +7,6 @@ package UI;
 import DAO.ChuyenDe_DAO;
 import DAO.KhoaHoc_DAO;
 import Utils.Tools;
-import javax.swing.Timer;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 
 /**
@@ -341,7 +338,7 @@ public class ManageCourse extends javax.swing.JDialog {
     private void OnRun()
     {
         Tools.SetFrameToCenter(this);
-        ChuyenDe_DAO.fillComboBox(cboChuyenDe, ChuyenDe_DAO.getColumn("MaCD"));
+        Tools.loadComboBox(cboChuyenDe, ChuyenDe_DAO.getColumn("MaCD"));
         KhoaHoc_DAO.fillTable(tblCourses, KhoaHoc_DAO.filterKhoaHoc(KhoaHoc_DAO.getAllKhoaHoc(), "maCD", cboChuyenDe.getSelectedItem().toString()));
     }
     /**

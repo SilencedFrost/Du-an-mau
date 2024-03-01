@@ -8,7 +8,9 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -56,5 +58,13 @@ public class Tools
     public static String getConInfo()
     {
         return "jdbc:sqlserver://localhost:1433;databaseName=" + ReadProps.getDBName() + ";username=" + ReadProps.getUsername() + ";password=" + ReadProps.getPassword();
+    }
+    
+    public static void loadComboBox(JComboBox comboBox, ArrayList<String> data) {
+        comboBox.removeAllItems();
+
+        for (String item : data) {
+            comboBox.addItem(item);
+        }
     }
 }
