@@ -47,7 +47,12 @@ public class KhoaHoc_DAO {
     public static void fillTable(JTable table, ArrayList<KhoaHoc> list) {
         String[] columnNames = {"MaKH", "MaCD", "HocPhi", "ThoiLuong", "NgayKG", "GhiChu", "MaNV", "NgayTao"};
 
-        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         for (KhoaHoc kh : list) {
             Object[] row = new Object[8];

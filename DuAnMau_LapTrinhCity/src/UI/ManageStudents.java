@@ -10,6 +10,9 @@ import DAO.KhoaHoc_DAO;
 import DAO.NguoiHoc_DAO;
 import Utils.Tools;
 import java.awt.event.ItemEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,12 +52,12 @@ public class ManageStudents extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHocVien = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnXoaKhoiKhoaHoc = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblNguoiHoc = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        btnThemVaoKhoaHoc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys -Quản lý học viên");
@@ -143,9 +146,19 @@ public class ManageStudents extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tblHocVien);
 
-        jButton1.setText("Xóa khỏi khóa học");
+        btnXoaKhoiKhoaHoc.setText("Xóa khỏi khóa học");
+        btnXoaKhoiKhoaHoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaKhoiKhoaHocActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cập nhật điểm");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -157,7 +170,7 @@ public class ManageStudents extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 262, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnXoaKhoiKhoaHoc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -170,7 +183,7 @@ public class ManageStudents extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btnXoaKhoiKhoaHoc))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -189,7 +202,12 @@ public class ManageStudents extends javax.swing.JDialog {
         ));
         jScrollPane2.setViewportView(tblNguoiHoc);
 
-        jButton3.setText("Thêm vào khóa học");
+        btnThemVaoKhoaHoc.setText("Thêm vào khóa học");
+        btnThemVaoKhoaHoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemVaoKhoaHocActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -201,7 +219,7 @@ public class ManageStudents extends javax.swing.JDialog {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addComponent(btnThemVaoKhoaHoc)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -210,7 +228,7 @@ public class ManageStudents extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(btnThemVaoKhoaHoc)
                 .addContainerGap())
         );
 
@@ -259,6 +277,58 @@ public class ManageStudents extends javax.swing.JDialog {
             HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.filterHocVien(HocVien_DAO.getAllHocVien(), "maKH", cboKhoaHoc.getSelectedItem().toString()));
         }
     }//GEN-LAST:event_cboKhoaHocItemStateChanged
+
+    private void btnXoaKhoiKhoaHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaKhoiKhoaHocActionPerformed
+        if(tblHocVien.getSelectedRow() != -1)
+        {
+            HocVien_DAO.removeStudent(Integer.parseInt(tblHocVien.getValueAt(tblHocVien.getSelectedRow(), 0).toString()));
+            JOptionPane.showMessageDialog(this, "Deleted successfully!");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Select a row!");
+        }
+        HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.filterHocVien(HocVien_DAO.getAllHocVien(), "maKH", cboKhoaHoc.getSelectedItem().toString()));
+    }//GEN-LAST:event_btnXoaKhoiKhoaHocActionPerformed
+
+    private void btnThemVaoKhoaHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemVaoKhoaHocActionPerformed
+        if(tblNguoiHoc.getSelectedRow() != -1)
+        {
+            if(!cboKhoaHoc.getSelectedItem().toString().equals("None"))
+            {
+                HocVien_DAO.addStudent(Integer.parseInt(cboKhoaHoc.getSelectedItem().toString()), tblNguoiHoc.getValueAt(tblNguoiHoc.getSelectedRow(), 0).toString());
+                JOptionPane.showMessageDialog(this, "Added successfully!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "MaKH is null!");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "You haven't seleted a row");
+        }
+        HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.filterHocVien(HocVien_DAO.getAllHocVien(), "maKH", cboKhoaHoc.getSelectedItem().toString()));
+    }//GEN-LAST:event_btnThemVaoKhoaHocActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(tblHocVien.getSelectedRow() != -1)
+        {
+            var chgScr = new ChangeScore(this, true);
+            chgScr.setUser(Integer.parseInt(tblHocVien.getValueAt(tblHocVien.getSelectedRow(), 0).toString()));
+            chgScr.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    HocVien_DAO.fillTable(tblHocVien, HocVien_DAO.filterHocVien(HocVien_DAO.getAllHocVien(), "maKH", cboKhoaHoc.getSelectedItem().toString()));
+                }
+            });
+            chgScr.setVisible(true);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Select a row!");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     private void OnRun()
@@ -315,11 +385,11 @@ public class ManageStudents extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnThemVaoKhoaHoc;
+    private javax.swing.JButton btnXoaKhoiKhoaHoc;
     private javax.swing.JComboBox<String> cboChuyenDe;
     private javax.swing.JComboBox<String> cboKhoaHoc;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

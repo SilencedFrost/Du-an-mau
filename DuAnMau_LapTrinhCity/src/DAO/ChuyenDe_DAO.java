@@ -45,7 +45,12 @@ public  class ChuyenDe_DAO {
     public static void fillTable(JTable table, ArrayList<ChuyenDe> list) {
         String[] columnNames = {"MaCD", "TenCD", "HocPhi", "ThoiLuong", "Hinh", "MoTa"};
 
-        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         for (ChuyenDe cd : list) {
             Object[] row = new Object[6];

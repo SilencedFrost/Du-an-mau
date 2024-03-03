@@ -57,7 +57,12 @@ public class NhanVien_DAO {
     public static void fillTable(JTable table, ArrayList<NhanVien> list) {
         String[] columnNames = {"MaNV", "HoTen", "VaiTro"};
 
-        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         for (NhanVien nv : list) {
             Object[] row = new Object[3];

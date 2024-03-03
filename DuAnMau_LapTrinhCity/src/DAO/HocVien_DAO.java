@@ -19,8 +19,8 @@ public class HocVien_DAO {
     public static ArrayList<HocVien> getAllHocVien() {
         ArrayList<HocVien> hocVienList = new ArrayList<>();
 
-        try {
-            Connection conn = Tools.GetCon();
+        try (Connection conn = Tools.GetCon())
+        {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM HocVien");
 
@@ -32,6 +32,7 @@ public class HocVien_DAO {
                 hv.setDiem(rs.getFloat("Diem"));
                 hocVienList.add(hv);
             }
+            conn.close();
         } 
         catch (SQLException e) {
         }
@@ -42,7 +43,12 @@ public class HocVien_DAO {
     public static void fillTable(JTable table, ArrayList<HocVien> list) {
         String[] columnNames = {"MaHV", "MaKH", "MaNH", "Diem"};
 
-        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         for (HocVien hv : list) {
             Object[] row = new Object[4];
@@ -85,5 +91,53 @@ public class HocVien_DAO {
         }
 
         return filteredList;
+    }
+    
+    public static void removeStudent(int MaHV)
+    {
+        try (Connection conn = Tools.GetCon())
+        {
+            PreparedStatement stm = conn.prepareStatement("Delete HocVien where MaHV = ?");
+            stm.setInt(1, MaHV);
+            stm.executeQuery();
+            conn.close();
+        }
+        catch (SQLException ex)
+        {
+            
+        }
+    }
+    
+    public static void addStudent(int MaKH, String MaNH)
+    {
+        try (Connection conn = Tools.GetCon())
+        {
+            PreparedStatement stm = conn.prepareStatement("Insert into HocVien(MaKH, MaNH, Diem) values (?, ?, ?)");
+            stm.setInt(1, MaKH);
+            stm.setString(2, MaNH);
+            stm.setFloat(3, 0);
+            stm.executeQuery();
+            conn.close();
+        }
+        catch(SQLException ex)
+        {
+            
+        }
+    }
+    
+    public static void updateScore(int MaHV, float Score)
+    {
+        try (Connection conn = Tools.GetCon())
+        {
+            PreparedStatement stm = conn.prepareStatement("update HocVien set Diem = ? where MaHV = ?");
+            stm.setFloat(1, Score);
+            stm.setInt(2, MaHV);
+            stm.executeQuery();
+            conn.close();
+        }
+        catch(SQLException ex)
+        {
+            
+        }
     }
 }

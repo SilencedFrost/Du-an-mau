@@ -184,6 +184,7 @@ insert into KhoaHoc(MaKH, MaCD, HocPhi, ThoiLuong, NgayKG, GhiChu, MaNV, NgayTao
 insert into KhoaHoc(MaKH, MaCD, HocPhi, ThoiLuong, NgayKG, GhiChu, MaNV, NgayTao) values (1012, N'PRO04', 300, 90, CAST(0xF6400B00 AS Date), N'Làm dự án với REST API và AngularJS', N'TeoNV', CAST(0x0A410B00 AS Date))
 insert into KhoaHoc(MaKH, MaCD, HocPhi, ThoiLuong, NgayKG, GhiChu, MaNV, NgayTao) values (1013, N'JAV01', 300, 90, CAST(0xF4400B00 AS Date), N'Lập trình Java cơ bản', N'TeoNV', CAST(0x0A410B00 AS Date))
 insert into KhoaHoc(MaKH, MaCD, HocPhi, ThoiLuong, NgayKG, GhiChu, MaNV, NgayTao) values (1014, N'JAV01', 250, 90, CAST(0xF2400B00 AS Date), N'Lập trình Java cơ bản', N'TeoNV', CAST(0x0A410B00 AS Date))
+set identity_insert KhoaHoc OFF
 go
 
 select * from KhoaHoc
@@ -244,9 +245,7 @@ go
 select * from NguoiHoc
 go
 
-set identity_insert KhoaHoc off
 set identity_insert HocVien on
-
 insert into HocVien(MaHV, MaKH, MaNH, Diem) values (1, 2, N'PS01638', 5)
 insert into HocVien(MaHV, MaKH, MaNH, Diem) values (8, 2, N'PS02988', 3)
 insert into HocVien(MaHV, MaKH, MaNH, Diem) values (12, 3, N'PS02037', 9)
@@ -381,6 +380,7 @@ insert into HocVien(MaHV, MaKH, MaNH, Diem) values (2053, 1005, N'PS03411', 0)
 insert into HocVien(MaHV, MaKH, MaNH, Diem) values (2054, 1005, N'PS03530', 0)
 insert into HocVien(MaHV, MaKH, MaNH, Diem) values (2055, 1013, N'PS03088', 0)
 insert into HocVien(MaHV, MaKH, MaNH, Diem) values (2056, 1013, N'PS03104', 0)
+set identity_insert HocVien OFF
 go
 
 select * from HocVien

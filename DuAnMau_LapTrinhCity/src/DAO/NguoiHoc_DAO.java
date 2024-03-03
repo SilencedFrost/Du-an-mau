@@ -45,7 +45,12 @@ public class NguoiHoc_DAO {
     public static void fillTable(JTable table, ArrayList<NguoiHoc> list) {
         String[] columnNames = {"MaNH", "HoTen", "NgaySinh", "GioiTinh", "DienThoai", "Email", "GhiChu", "MaNV", "NgayDK"};
 
-        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         for (NguoiHoc nh : list) {
             Object[] row = new Object[9];
